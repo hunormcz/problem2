@@ -10,12 +10,19 @@ class ProblemTwo {
 	  System.out.println("How many players per team?");
 	  input = stdin.readLine();
 	  int pnumbers =  Integer.valueOf(input);
-	  Units a = new Units();
-	  int[] teamcomp = a.unitComposition(pnumbers);
 	  
-	  System.out.println(teamcomp[0]);
-	  System.out.println(teamcomp[1]);
-	  System.out.println(teamcomp[2]);
-  
+	  Units unit = new Units();
+	  String[] teamcomp = unit.unitComposition(pnumbers);
+	  
+	  printTeam team = new printTeam();
+	  
+	
+	  readNames readn = new readNames();
+	  String[] playernames =  readNames.readFile(pnumbers); 
+	  
+		
+	  
+	  team.print(teamcomp, playernames, pnumbers);
+	  
   }
 }

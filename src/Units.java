@@ -1,25 +1,37 @@
 class Units {
 
-	public int[] unitComposition (int players){
-		int[] playerComposition;
-		playerComposition = new int[3];
+	public String[] unitComposition (int players){
+		String[] playerComposition;
+		playerComposition = new String[players+1];
 		
 		//tanks
-		
+		int tanks;
 		if (players <= 5) 
-				{playerComposition[0] = 1;
+				{tanks = 1;
 				}
 		else 
 		{
-			playerComposition[0] = 2;
+			tanks = 2;
 		}
 		
+		for (int i=0; i < tanks; i++)
+		{
+			playerComposition[i]="Tank";
+		}
 		//healers
-		playerComposition[1] = players / 5;
+		int healers = players / 5;
+		for (int i=0+tanks; i < tanks+healers; i++)
+		{
+			playerComposition[i]="Healer";
+		}
+		
 		
 		//dps
-		playerComposition[2] = players - (playerComposition[1]+playerComposition[0]);
 		
+		for (int i=healers+tanks; i < players; i++)
+		{
+			playerComposition[i]="DPS";
+		}
 		
 		return playerComposition;
 			
